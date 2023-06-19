@@ -1,0 +1,93 @@
+@include header
+<style>
+.button.is-info{
+    font-size: 12px;
+    padding: 5px 10px;    
+}
+.view-cart{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    font-size: 25px;
+    background: white;
+    color: #314254;
+    padding: 0px;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.box p{
+    margin: 5px 0px;
+}
+.box img{
+    margin-top: 10px;
+}
+.box p.product_price{
+    background: teal;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+.pagination{
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    background: #fff;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
+.pagination a.active{
+    font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+function EJEJC_lc(th) { return false; };
+</script>
+<script src="https://www.e-junkie.com/ecom/box_fb_n.js"></script>
+
+<br/><br/>
+
+<div class="columns is-centered">
+    <div class="column is-8">
+        <div class="box">
+            <p>
+                {Tags}
+                    <a class="button is-info {Tag.Active}" href="{Tag.Url}">{Tag.Name}</a>
+                {/Tags}
+            </p>
+        </div>
+    </div>
+</div>
+
+<a class="view-cart" target="ejejc" href="{EJ.ViewCartUrl}" onclick="return EJEJC_lc(this)"><i class="ion-ios-cart"></i></a>
+
+<div class="container">
+    <div class="columns is-multiline">
+    {Products}
+        <div class="column is-4">
+            <div class="box" id="EJ_Product_{Product.Number}">
+                <p class="product_title"><a href="{Product.Url}"><strong>{Product.Name}</strong></a></p>
+                <p>{Product.Tagline}</p>
+                <img src="{Product.Image}" alt="{Product.Name}" title="{Product.Name}">
+                <p class="product_price">{Product.Currency} {Product.Price}</p>
+                <p class="product_description">{Product.Description}</p>
+            </div>
+        </div>
+    {/Products}
+    </div>
+</div>
+
+<p class="pagination">
+{Pagination}
+    <a class="{Pagination.Active}" href="{Pagination.Url}">{Pagination.Number}</a>
+{/Pagination}
+</p>
+
+@include footer

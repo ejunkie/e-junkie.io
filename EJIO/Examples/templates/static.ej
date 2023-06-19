@@ -1,0 +1,14 @@
+@include header
+
+<br/><br/>
+
+<div class="columns is-centered">
+  <div class="column is-8">
+    <h1 class="title has-text-centered"><img src="https://www.e-junkie.com/ej/images/E-junkieIO2.png" style="width: 200px;"></h1>
+		<div class="box">
+			{Page.Content}
+    </div>
+  </div>
+</div>
+
+@include footer

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{Page.Title}</title>
+    <meta name="description" content="{Page.Description}">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="{Page.Author}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{Site.Logo}">
+    {IfShop}
+    <meta property="og:title" content="{Page.Title}">
+    <meta property="og:url" content="{Page.Url}">
+    <meta property="og:description" content="{Page.Description}">
+    <meta property="og:image" content="{Page.Logo}">
+    {/IfShop}
+    {IfProduct}
+    <meta property="og:type" content="product.item">
+    <meta property="product:retailer_item_id" content="{Product.Number}" />
+    <meta property="product:price:amount"     content="{Product.Price}" />
+    <meta property="product:price:currency"   content="{Product.Currency}" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{Product.Name}">
+    <meta name="twitter:description" content="{Product.Description}">
+    <meta name="twitter:image" content="{Product.Image}">
+    {/IfProduct}
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link href="https://unpkg.com/ionicons@4.0.0/dist/css/ionicons.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    {JSONLD}
+    <style>
+      body{
+        font-family: 'Quicksand', sans-serif;
+        color: #1e293d;
+        background: #314254;
+        min-height: 100vh;
+      }
+      .footerP{
+        background: #03A9F4;
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+        color: #fff;
+        padding: 5px 50px;
+        border-radius: 3px;
+      }
+      .title{ color: #fff; font-weight: normal; }
+      h4{
+        font-size: 16px;
+        text-align: right;
+        font-weight: bold;
+      }
+      h3{
+          font-size: 20px;
+          border-bottom: 1px solid #eee;
+          width: fit-content;
+          display: block;
+          margin-bottom: 5px;
+          padding-right: 20px;
+          color: #2196F3;
+      }
+      li {
+          padding-left: 0px;
+          font-size: 15px;
+          color: #666;
+          margin-bottom: 3px;
+      }
+      p{
+          margin: 10px 0px;
+          font-size: 15px;
+          color: teal;
+      }
+    </style>
+  </head>
+  <body>
+    

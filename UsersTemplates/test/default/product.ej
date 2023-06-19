@@ -1,0 +1,136 @@
+@include header
+<style>
+.button.is-info{
+    font-size: 12px;
+    padding: 5px 10px;    
+}
+.view-cart{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    font-size: 25px;
+    background: white;
+    color: #314254;
+    padding: 0px;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.box p{
+    margin: 5px 0px;
+}
+.box img{
+    margin-top: 10px;
+}
+.box p.product_price{
+    background: teal;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+h4{ text-align: left; }
+.box .detailsBox img{
+    max-width: 200px;
+    margin-right: 20px;
+    float: left;
+    margin-top: 0px;
+}
+.box .details{
+    clear: both;
+    display: block;
+    margin-top: 20px;
+}
+.box .detailsBox{
+    min-height: 200px;
+    margin-top: 20px;
+}
+.cart_btn{
+    background: #03A9F4;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.relatedProduct{
+    text-align: left;
+    display: inline-block;
+    max-width: 150px;
+    vertical-align: top;
+    margin-right: 10px;
+}
+.relatedProduct img{
+    float: none;
+    max-width: 150px;
+}
+</style>
+<script type="text/javascript">
+function EJEJC_lc(th) { return false; };
+function EJEJC_frm(th) { return false; };
+</script>
+<script src="https://www.e-junkie.com/ecom/box_fb_n.js"></script>
+
+<br/><br/>
+
+<div class="columns is-centered">
+    <div class="column is-8">
+        <div class="box">
+            <p>
+                {Tags}
+                    <a class="button is-info {Tag.Active}" href="{Tag.Url}">{Tag.Name}</a>
+                {/Tags}
+            </p>
+        </div>
+    </div>
+</div>
+
+<a class="view-cart" target="ejejc" href="{EJ.ViewCartUrl}" onclick="return EJEJC_lc(this)"><i class="ion-ios-cart"></i></a>
+
+<div class="columns is-centered is-multiline">
+    <div class="column is-8">
+        <div class="box">
+            <h4>{Product.Name}</h4>            
+            <p>{Product.Description}</p>
+            <div class="detailsBox">            
+                <img itemprop="image" id="thumbnail_element" src="{Product.Image}" alt="{Product.Name}" title="{Product.Name}">
+                <p itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span itemprop="price">{Product.Currency} {Product.Price}</span></p>
+                {Product.Form}
+                    {DropDown}
+                    <label class="label">{DropDown.Label}</label>
+                    <select name="{DropDown.Name}" style="max-width:250px;">{DropDown.Options}</select>
+                    {/DropDown}
+                    {TextField}
+                    <label class="label">{TextField.PlaceHolder}</label>
+                    <input class="input" type="text" placeholder="{TextField.PlaceHolder}" name="{TextField.Name}">
+                    {/TextField}
+                    {BuyNowButton}
+                    <button type="submit" class="cart_btn" onclick="javascript:return EJEJC_frm(this.parentNode);"><i class="ion-ios-cart"></i> ADD TO CART</button>
+                    {/BuyNowButton}
+                {/Product.Form}
+            </div>
+            <p class="details">{Product.Details}</p>
+        </div>
+       {RelatedProducts}
+        <div class="related-products box">
+                    <p style="color: #009900;"><strong>Related Products</strong></p>
+                    {RelatedProduct}
+                    <div class="relatedProduct">
+                            <a href="{RelatedProduct.Url}" style="color: black;text-decoration: none;">
+                                    <p><strong>{RelatedProduct.Name}</strong><br/>{RelatedProduct.Tagline}</p>
+                                    <img src="{RelatedProduct.Image}" alt="{RelatedProduct.Name}" title="{RelatedProduct.Name}">
+                            </a>
+                    </div>
+                    {/RelatedProduct}
+            </div>
+        {/RelatedProducts}
+    </div>
+</div>
+
+@include footer

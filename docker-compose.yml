@@ -1,0 +1,9 @@
+version: "3.2"
+
+services:
+  app:
+    image: swastikmishra/alpine-apache-php-mongo
+    ports:
+      - "0.0.0.0:9696:80"
+    volumes:
+      - ./:/app/public
